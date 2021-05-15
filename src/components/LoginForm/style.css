@@ -1,0 +1,23 @@
+.form-login {
+  font-size: 1rem;
+  align-self: center;
+  margin: auto;
+  padding: 45px;
+  padding-top: 21px;
+  border: 1px solid #68cad3;
+  box-shadow: 0px 18px 20px 0px #6184e6;
+  border-radius: 37px;
+  background: var(--bg-color);
+}
+.form-login > form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-login > h2 {
+  margin-bottom: 23px;
+}
+
+.form-group {
+  min-height: 130px;
+}

@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+Insert your token between the single quotation marks
+
+$ echo "export const token = '<Your token>'" > ./src/config/token.js
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

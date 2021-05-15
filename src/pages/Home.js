@@ -1,5 +1,9 @@
-import { LoginForm } from '../components/LoginForm/LoginForm'
+import { HeroTeam } from '../components/HeroTeam/HeroTeam'
 
 export const Home = () => {
-  return <LoginForm/>
+  return(
+    <div>
+      <HeroTeam />
+    </div>
+  )
 }

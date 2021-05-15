@@ -1,11 +1,24 @@
 import { Form, Button } from 'react-bootstrap'
-import { HandleLogin } from '../../services/handleLogin'
+import { HandleLogin } from '../../services/handleLogin/handleLogin'
+
+import { LoadingIcon } from '../LoadingIcon/LoadingIcon'
 import { Input } from '../FormInput/FormInput'
+import { ModalAlert } from '../ModalAlert/ModalAlert'
+
+import './style.css'
 
 export const LoginForm = () => {
-  const  formik = HandleLogin()
-  return(
-    <div>
+  const {
+    formik, session,
+    modalShow, setModalShow
+  } = HandleLogin()
+
+  return (
+    <div className='form-login' >
+      <h2>
+        Login In
+      </h2>
+
       <Form onSubmit={formik.handleSubmit}>
         <Input
           name='email'
@@ -19,12 +32,17 @@ export const LoginForm = () => {
           placeholder='********'
           control={formik}
         />
-        <Button
-          variant='primary'
-          type='submit'
-        >
-          Enviar
-        </Button>
+
+        { session.loading
+          ? <LoadingIcon />
+          : <Button variant='primary' type='submit'>
+             Send
+            </Button>
+        }
+        <ModalAlert
+          modalShow={modalShow}
+          setModalShow={setModalShow}
+        />
       </Form>
     </div>
   )

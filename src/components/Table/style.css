@@ -1,0 +1,22 @@
+.total-stats ,.averages {
+  display: grid;
+  justify-items: center;
+}
+.power-stats {
+  display: grid;
+  margin: 5%;
+  margin-top: 6.25rem;
+  box-shadow: 0.0625rem 0.375rem 0.5rem 0.375rem #82828269;
+  border-radius: 1.25rem;
+  font-size: 1.25rem;
+}
+.power-stats > h2 {
+  color: var(--bs-indigo);
+  margin: 1.25rem 0;
+}
+.total-stats {
+  grid-template-columns: repeat(3, 1fr);
+}
+.averages {
+  grid-template-columns: repeat(2, 1fr);
+}

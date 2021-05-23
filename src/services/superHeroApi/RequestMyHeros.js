@@ -1,42 +1,26 @@
-import { useState, useEffect } from 'react'
-import { axiosInstance } from './superHeroApi'
+import { useEffect } from 'react'
+import { MyTeamReducer } from '../../reducer/MyTeamReducer/MyTeamReducer'
+import { superHeroApi } from '../../config/superHeroApi'
+import { setDataHero, sortPowerStats } from './aux'
 import axios from 'axios'
 
-const setHero = data => {
-   return {
-    name: data.name,
-    key: data.name,
-    img: data.image.url,
-    powerstats: data.powerstats,
-    details: {
-      weight: data.appearance.weight,
-      height: data.appearance.height,
-      eyeColor: data.appearance['eye-color'],
-      hairColor: data.appearance['hair-color'],
-      fullName: data.biography['full-name'],
-      workspace: data.work.base
-    }
-  }
-}
-
 export const RequestMyHeros = () => {
-
-  const [herosId, setHeroId]= useState(['a', '01', '02', '3'])
-  const[heros, setHeros] = useState([])
+  const [myTeam, dispatch] = MyTeamReducer()
 
   useEffect(() => {
-    const requests = herosId.reduce((acc, cur) => {
-      return [...acc, axiosInstance.get(cur)]
-    }, [])
+    const requests = myTeam.herosId.map( id => superHeroApi.get(id))
+    dispatch.loading()
 
-    axios.all(requests)
-      .then(responses =>
-        responses
-          .filter(res => res.data.response === 'success')
-          .map(curRequest => setHero(curRequest.data))
-      ).then(r => setHeros(r))
+    axios
+      .all(requests)
+      .then(responses => responses.map(({data}) => setDataHero(data)))
+      .then(data => {
+        dispatch.getAllSuccess(data)
+        dispatch.setTeamPowerStats(sortPowerStats(data))
+      })
       .catch(err => console.log(err))
+      .then(() => dispatch.load())
   }, [])
 
-  return{heros, setHeros}
+  return{myTeam}
 }

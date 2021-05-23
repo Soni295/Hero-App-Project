@@ -1,11 +1,3 @@
-import { useReducer } from 'react'
-
-const initState = {
-  user: '',
-  token: localStorage.getItem('token') || null,
-  loading: false
-}
-
 export const actionType = {
   LOADING: 'LOADING',
   END_OF_LOADING: 'LOADING_OF_LOADING',
@@ -15,7 +7,6 @@ export const actionType = {
 }
 
 export const reducer = (state, action) => {
-
   switch(action.type) {
     case actionType.LOADING:
       return {...state, loading: true}
@@ -33,22 +24,3 @@ export const reducer = (state, action) => {
       return {...state}
   }
 }
-
-export const UserReducer = () => {
-  const [session, setSession] = useReducer(reducer, initState)
-
-  const dispatch = {
-    loading: () => setSession(
-      {type: actionType.LOADING}),
-    loginSuccess: (user, token) => setSession(
-      {type: actionType.LOGIN_SUCCESS, payload: {user, token} }),
-    loginError : () =>
-      setSession({type: actionType.LOGIN_ERROR}),
-    endOfLoading: () =>
-      setSession({type: actionType.END_OF_LOADING})
-  }
-
-  return {session, dispatch}
-}
-
-

@@ -1,7 +1,8 @@
 import React, { createContext } from 'react'
-import { UserReducer } from './UserReducer'
+import { UserReducer } from '../reducer/UserReducer/UserReducer'
 
 export const UserContext = createContext()
+
 export const UserProvider = ({children}) => {
 
   const {session, dispatch} = UserReducer()

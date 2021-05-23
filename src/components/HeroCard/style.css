@@ -1,0 +1,117 @@
+.card {
+  text-align: center;
+  max-width: 26rem;
+}
+.hero-name {
+  color: var(--bs-light);
+  text-align: center;
+  font-size: 3vw !important;
+  text-shadow: 0 0 10px var(--bs-red);
+  z-index: 1000;
+}
+.hero-stats {
+  position: absolute;
+  display: grid;
+  top: 60%;
+  right: 0;
+  bottom: 90px;
+  left: 0;
+  grid-template-columns: repeat(2, 1fr);
+  text-align: center;
+  background: #0908084f;
+  backdrop-filter: blur(3px);
+}
+.hero-pìcture {
+  object-fit: cover;
+}
+.hero-stats  > p {
+  color: var(--bs-light);
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 1.6vw;
+  margin-bottom: 0px;
+  align-self: center;
+}
+.bad {
+  text-shadow:
+    0 0 10px var(--bs-red),
+    0 0 25px var(--bs-red),
+    0 0 40px var(--bs-red);
+}
+.good {
+  text-shadow:
+    0 0 10px var(--bs-primary),
+    0 0 25px var(--bs-primary),
+    0 0 40px var(--bs-primary);
+}
+
+@media only screen and (max-width: 40em) {
+  .hero-stats > p {
+    font-size: 1rem;
+  }
+  .hero-name {
+    font-size: 2rem !important;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .hero-stats > p {
+    font-size: 1rem;
+  }
+  .hero-name {
+    font-size: 2rem !important;
+  }
+}
+
+.details {
+  display: grid;
+  position: absolute;
+  top: 0;
+  bottom: 90px;
+  left: 0;
+  right: 0;
+  align-items: center;
+  background:  #000000a3;
+  backdrop-filter: blur(6px);
+  visibility: hidden;
+}
+.details > p {
+  color: var(--bs-light);
+  font-size: 20px;
+}
+
+@keyframes fade-in {
+  from {
+    visibility: hidden;
+    opacity: 0;
+  }
+  1% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fade-in 1000ms ease-in-out forwards;
+}
+
+@keyframes fade-out {
+  from {
+    visibility: visible;
+    opacity: 1;
+  }
+  99% {
+    visibility: visible;
+    opacity: 0;
+  }
+  to {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+.fade-out {
+  animation: fade-out 700ms ease-in-out forwards;
+}

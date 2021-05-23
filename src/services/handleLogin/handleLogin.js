@@ -16,7 +16,8 @@ export const HandleLogin = () => {
 
   const onSubmit = values => {
     dispatch.loading()
-    axios.post(URL, values)
+    axios
+      .post(URL, values)
       .then(response => {
         if(response.status === 200) return response.data.token
       })

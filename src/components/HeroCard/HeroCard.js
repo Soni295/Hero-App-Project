@@ -1,46 +1,45 @@
-import { Card, Button } from 'react-bootstrap'
+import { useState } from 'react'
+import { Card, Button, ButtonGroup } from 'react-bootstrap'
+import { Table } from '../Table/Table'
+import './style.css'
 
-export const HeroDetails = (
-  {weight, height, fullName, aliases, eyeColor, hairColor, workspace}) => {
 
+export const HeroCard = ({name, img, powerstats, details, alignment}) => {
+
+  const [visible, setVisible] = useState({front: ' fade-in', back: ' fade-out'})
+
+  const handleVisible = () => setVisible(preState => {
+    return {front: preState.back, back: preState.front}
+  })
+
+  console.log(alignment)
   return(
-    <div>
-      <p>{weight}</p>
-      <p>{height}</p>
-      <p>{fullName}</p>
-      <p>{aliases}</p>
-      <p>{eyeColor}</p>
-      <p>{hairColor}</p>
-      <p>{workspace}</p>
-    </div>
-  )
-}
-
-
-export const HeroCard = ({name, img, powerstats, details}) => {
-
-  const Liststats = ({powerstats}) => {
-    const {intelligence, strength, speed, durability, power} = powerstats
-    return(
-      <>
-        <p>Intelligence: {intelligence} </p>
-        <p>Strength: {strength} </p>
-        <p>Speed: {speed} </p>
-        <p>Durability: {durability} </p>
-        <p>Power: {power} </p>
-      </>
-    )
-  }
-
-  return(
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={img} />
+    <Card>
+      <Card.Img className='hero-picture' variant="top" src={img} />
         <Card.ImgOverlay>
-          <Card.Title>{name}</Card.Title>
+          <Card.Title className={'hero-name ' + alignment}>{name}</Card.Title>
         </Card.ImgOverlay>
+
+        <Table
+          data={powerstats}
+          containerClass={'hero-stats ' + alignment + visible.front }
+        />
+        <Table
+          data={details}
+          containerClass={'details ' + alignment + visible.back }
+        />
+
+
       <Card.Body>
-          <Liststats powerstats={powerstats}/>
-        <Button variant="primary">Go somewhere</Button>
+       <ButtonGroup size="lg" className="mb-2  align-items-sm-center ">
+          <Button>Add</Button>
+          <Button
+            variant="dark"
+            onClick={handleVisible}
+          >
+            Details
+          </Button>
+        </ButtonGroup>
       </Card.Body>
     </Card>
   )

@@ -1,0 +1,9 @@
+.search-form {
+  display: flex;
+  margin-left: 2.5rem;
+}
+@media only screen and (max-width: 998px) {
+  #responsive-navbar-nav {
+    text-align: center;
+  }
+}

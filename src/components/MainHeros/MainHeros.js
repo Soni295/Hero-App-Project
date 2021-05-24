@@ -8,7 +8,10 @@ export const MainHeros = () => {
   return (
     <main className='main-heros'>
       {heros.map( hero =>
-        <HeroCard {...hero} />
+        <HeroCard
+          key={hero.name + hero.id}
+          {...hero}
+        />
       )}
     </main>
   )

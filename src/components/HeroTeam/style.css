@@ -1,6 +1,14 @@
 .card-deck {
   display: grid;
   justify-items: center;
-  margin: 5%;
-  grid-template-columns: repeat(auto-fill, minmax(26rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+  margin: .5rem;
+}
+.loading-spin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 100px;
+  width: 100px;
 }

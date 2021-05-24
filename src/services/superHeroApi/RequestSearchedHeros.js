@@ -16,5 +16,5 @@ export const RequestSearchedHeros = () => {
       .catch(err => console.log(err))
   }, [name])
 
-  return{heros}
+  return {heros}
 }

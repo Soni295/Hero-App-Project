@@ -1,6 +1,5 @@
 .card {
   text-align: center;
-  max-width: 26rem;
 }
 .hero-name {
   color: var(--bs-light);

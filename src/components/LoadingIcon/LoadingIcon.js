@@ -1,10 +1,10 @@
-export const LoadingIcon = ({size}) => {
-  return (
-    <div
-      role="status"
-      className="spinner-border align-self-center text-primary"
-    >
-      <span className="sr-only"></span>
-    </div>
-  )
-}
+import './style.css'
+
+export const LoadingIcon = () => (
+  <div
+    role="status"
+    className="spinner-border align-self-center text-primary spinner-border-responsive"
+  >
+    <span className="sr-only"></span>
+  </div>
+)

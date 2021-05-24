@@ -1,7 +1,6 @@
 export const setDataHero = data => {
   return {
     name: data.name,
-    key: data.name + data.id,
     img: data.image.url,
     powerstats: data.powerstats,
     details: {
@@ -46,6 +45,8 @@ const sortMyStats = ({weight, height, ...stats}, countHero) => {
 }
 
 export const sortPowerStats = data => {
+  if(data[0] === undefined)return null
+
   const allStats = data.reduce(sumStats, null)
   return sortMyStats(allStats, data.length)
 }

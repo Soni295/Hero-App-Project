@@ -1,3 +1,11 @@
+const getLocal = () =>
+  JSON.parse(localStorage.getItem('myTeam'))
+
+export const initState = getLocal() || {
+  heros: [],
+  powerStats: null,
+}
+
 export const actionType = {
   ADD_HERO: 'ADD_HERO',
   REMOVE_HERO: 'REMOVE_HERO',

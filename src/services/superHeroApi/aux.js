@@ -1,20 +1,18 @@
-export const setDataHero = data => {
-  return {
-    name: data.name,
-    img: data.image.url,
-    powerstats: data.powerstats,
-    details: {
-      fullName: data.biography['full-name'],
-      weight: data.appearance.weight[1],
-      height: data.appearance.height[1],
-      hairColor: data.appearance['hair-color'],
-      eyeColor: data.appearance['eye-color'],
-      workspace: data.work.base
-    },
-    id: data.id,
-    alignment: data.biography.alignment
-  }
-}
+export const setDataHero = data => ({
+  name: data.name,
+  img: data.image.url,
+  powerstats: data.powerstats,
+  details: {
+    fullName: data.biography['full-name'],
+    weight: data.appearance.weight[1],
+    height: data.appearance.height[1],
+    hairColor: data.appearance['hair-color'],
+    eyeColor: data.appearance['eye-color'],
+    workspace: data.work.base
+  },
+  id: data.id,
+  alignment: data.biography.alignment
+})
 
 const onlyNum = string =>
   parseFloat(string.replace(/(\d*\.?d*)(.*)/, '$1'))

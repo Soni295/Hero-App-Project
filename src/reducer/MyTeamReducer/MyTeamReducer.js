@@ -1,18 +1,9 @@
-import { useReducer } from 'react'
-import { useEffect } from 'react'
-import { reducer, actionType } from './reducer'
+import { useReducer, useEffect } from 'react'
+import { reducer, actionType, initState } from './reducer'
 import { sortPowerStats } from '../../services/superHeroApi/aux'
 
-const getLocal = () =>
-  JSON.parse(localStorage.getItem('myTeam'))
-
-const setLocal = ({heros})=>
-  localStorage.setItem('myTeam', JSON.stringify(heros))
-
-const initState = {
-  heros: getLocal() || [],
-  powerStats: null,
-}
+const setLocal = (team)=>
+  localStorage.setItem('myTeam', JSON.stringify(team))
 
 export const MyTeamReducer = () => {
   const [myTeam, setMyTeam] = useReducer(reducer, initState)

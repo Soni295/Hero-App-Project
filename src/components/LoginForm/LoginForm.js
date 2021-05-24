@@ -34,7 +34,7 @@ export const LoginForm = () => {
         />
 
         { session.loading
-          ? <LoadingIcon />
+          ? <div className='loading'><LoadingIcon /></div>
           : <Button variant='primary' type='submit'>
              Send
             </Button>

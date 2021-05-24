@@ -1,0 +1,23 @@
+.default-message {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.default-message > h2 {
+  height: 100%;
+  width: 100%;
+  font-size: 3.1875rem;
+  color: #a1a1a1;
+  text-shadow: 2px 3px 0px #00000038;
+}
+@media only screen and (max-width: 64em) {
+  .default-message > h2 {
+    font-size: 2.0625rem;
+  }
+}
+@media only screen and (max-width: 40em) {
+  .default-message > h2 {
+    font-size: 1.625rem;
+  }
+}

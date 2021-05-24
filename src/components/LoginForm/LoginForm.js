@@ -16,7 +16,7 @@ export const LoginForm = () => {
   return (
     <div className='form-login' >
       <h2>
-        Login In
+        Login
       </h2>
 
       <Form onSubmit={formik.handleSubmit}>

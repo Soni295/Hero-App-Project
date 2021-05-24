@@ -16,3 +16,10 @@ export const validate = values => {
 
   return errors
 }
+
+export const initialValues = { email: '', password: '' }
+
+export const typeOfMsg = {
+  'Network Error': 'You have a problem with your network connection try later.',
+  'Request failed with status code 401': 'The password or email is wrong try again'
+}

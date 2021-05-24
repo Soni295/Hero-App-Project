@@ -1,4 +1,4 @@
-import { useReducer } from 'react'
+import { useReducer, useEffect } from 'react'
 import { actionType, reducer } from './reducer'
 
 const initState = {
@@ -20,6 +20,10 @@ export const UserReducer = () => {
     endOfLoading: () =>
       setSession({type: actionType.END_OF_LOADING})
   }
+
+  useEffect( ()=>{
+    if(session.token) localStorage.setItem('token', session.token)
+  }, [session.token])
 
   return {session, dispatch}
 }

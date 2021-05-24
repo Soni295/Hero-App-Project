@@ -2,8 +2,8 @@ import { useContext, useState } from 'react'
 import { useFormik } from 'formik'
 
 import { challengeApi } from '../../config/challengeApi'
-
 import { UserContext } from '../../context/UserContext'
+
 import { validate, initialValues, typeOfMsg } from './validate'
 
 export const HandleLogin = () => {

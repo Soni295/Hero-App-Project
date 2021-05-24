@@ -16,7 +16,6 @@ const Routers = () => (
   </Router>
 )
 
-
 export const App = () => (
   <UserProvider>
     <MyTeamProvider>

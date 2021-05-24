@@ -1,5 +1,8 @@
-import { MainHeros } from '../components/MainHeros/MainHeros'
+import { HeroContainer } from '../components/HeroContainer/HeroContainer'
+import { RequestSearchedHeros } from '../services/superHeroApi/RequestSearchedHeros'
 
-export const SearchPage = () => (
-  <MainHeros />
-)
+export const SearchPage = () => {
+  const {heros} = RequestSearchedHeros()
+
+  return <HeroContainer heros={heros}/>
+}

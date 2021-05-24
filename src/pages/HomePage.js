@@ -1,7 +1,8 @@
-import { useContext, useEffect } from 'react'
+import { useContext } from 'react'
 import { MyTeamContext } from '../context/MyTeamContext'
 
-import { HeroTeam } from '../components/HeroTeam/HeroTeam'
+import { HeroContainer } from '../components/HeroContainer/HeroContainer'
+import { MyTeamTable } from '../components/Table/MyTeamTable'
 import { DefaultMessage } from '../components/DefaultMessage/DefaultMessage'
 
 export const HomePage = () => {
@@ -10,5 +11,9 @@ export const HomePage = () => {
 
   return myTeam.heros.length === 0
     ? <DefaultMessage text={message} />
-    : <HeroTeam myTeam={myTeam}/>
+    :
+    <>
+      <MyTeamTable data={myTeam.powerStats} />
+      <HeroContainer heros={myTeam.heros}/>
+    </>
 }

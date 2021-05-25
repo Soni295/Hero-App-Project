@@ -1,10 +1,10 @@
 # Hero App Project
 
-### first clone the repository  
+### first clone the repository
 
 ```bash
 $ git clone https://github.com/Soni295/Hero-App-Project.git
-$ cd App-Hero-Project
+$ cd Hero-App-Project
 ```
 ### then you have to insert your token which you can get here https://superheroapi.com/
 ### next copy execute this command change \<Your token> for your token.
@@ -21,6 +21,6 @@ $ echo "export const token = '1234'" > ./src/config/token.js
 ### finally execute the next command for install all dependencis and start the server
 
 ```bash
-$ yarn intall
+$ yarn install
 $ yarn start
 ```

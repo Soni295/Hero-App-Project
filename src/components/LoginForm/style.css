@@ -21,3 +21,6 @@
   width: 2.1875rem;
   margin: auto;
 }
+.input {
+  min-height: 5rem;
+}

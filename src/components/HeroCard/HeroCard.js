@@ -15,10 +15,14 @@ export const HeroCard = ({name, img, powerstats, details, id, alignment}) => {
     ({front: preState.back, back: preState.front})
   ), [setVisible])
 
+  const handleImgError = (e) => {
+    e.target.src = '/default.png'
+  }
+
   return(
     <Card>
-      <Card.Img className='hero-picture' variant="top" src={img} />
 
+      <Card.Img className='hero-picture' variant="top" src={img} onError={handleImgError}/>
       <Card.ImgOverlay>
         <Card.Title className={'hero-name ' + alignment}>{name}</Card.Title>
       </Card.ImgOverlay>

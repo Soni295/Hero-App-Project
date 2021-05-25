@@ -1,4 +1,4 @@
-import { useContext, memo } from 'react'
+import { useContext, memo, useCallback } from 'react'
 import { Button, ButtonGroup } from 'react-bootstrap'
 
 import { MyTeamContext } from '../../context/MyTeamContext'
@@ -13,14 +13,14 @@ export const Buttons = memo(({handleVisible, id, alignment, hero}) => {
 
   const existIntheTeam = myTeam.heros.some(hero=> hero.id === id)
 
-  const handleAdd = () => {
+  const handleAdd =  useCallback(() => {
     const countAlignment =  myTeam.heros.reduce((count, myHero) =>
       myHero.alignment === alignment
         ? count + 1 : count , 0
     )
     if(countAlignment < 3) dispatch.addHero(hero)
-    else  setModal.show()
-  }
+    else setModal.show()
+  }, [hero, myTeam.heros])
 
   const handleRemove = () => dispatch.removeHero(id)
 

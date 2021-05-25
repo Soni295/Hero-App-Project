@@ -20,7 +20,7 @@ export const RequestHeros = () => {
       .then(arrHeros => dispatch.successfulSearsh(arrHeros))
       .catch(err => console.log(err))
       .then(() => dispatch.endOfLoading())
-  }, [name ])
+  }, [name, dispatch])
 
   return {heros}
 }

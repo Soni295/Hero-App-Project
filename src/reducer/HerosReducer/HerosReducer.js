@@ -1,10 +1,10 @@
-import { useReducer } from 'react'
+import { useReducer, useMemo } from 'react'
 import { actionType, reducer, initState } from './reducer'
 
 export const HerosReducer = () => {
   const [heros, setHeros] = useReducer(reducer, initState)
 
-  const dispatch = {
+  const dispatch = useMemo(() =>({
     loading: () =>
       setHeros({type: actionType.LOADING}),
 
@@ -16,7 +16,8 @@ export const HerosReducer = () => {
 
     resetList: () =>
       setHeros({type: actionType.RESET_LIST_OF_HEROS})
-  }
+
+  }), [])
 
   return {heros, dispatch}
 }

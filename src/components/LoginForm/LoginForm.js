@@ -21,12 +21,14 @@ export const LoginForm = () => {
 
       <Form onSubmit={formik.handleSubmit}>
         <Input
+          className='input'
           name='email'
           type='email'
           placeholder='JohnDoe@gmail.com'
           control={formik}
         />
         <Input
+          className='input'
           name='password'
           type='password'
           placeholder='********'

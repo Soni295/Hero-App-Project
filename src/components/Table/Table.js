@@ -7,5 +7,5 @@ export const Table = ({data, containerClass=''}) => {
     table.push(<p key={key+1}>{key}: {data[key]}</p>)
   }
 
-  return<div className={containerClass}>{table}</div>
+  return<div className={'table '+ containerClass}>{table}</div>
 }

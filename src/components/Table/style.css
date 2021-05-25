@@ -1,14 +1,20 @@
-.total-stats ,.averages {
+.table {
   display: grid;
   justify-items: center;
 }
+.table > p {
+  align-items: center;
+  margin: 10px;
+}
 .power-stats {
   display: grid;
-  margin: 5%;
+  margin: auto;
+  max-width: 75rem;
   margin-top: 6.25rem;
+  margin-bottom: 5.625rem;
   box-shadow: 0.0625rem 0.375rem 0.5rem 0.375rem #82828269;
   border-radius: 1.25rem;
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 .power-stats > h2 {
   color: var(--bs-indigo);
@@ -19,4 +25,28 @@
 }
 .averages {
   grid-template-columns: repeat(2, 1fr);
+}
+@media only screen and (max-width: 64em) {
+  .table > p {
+    font-size: 1.25rem;
+  }
+
+  .power-stats {
+    margin: 5%;
+    margin-top: 7.1875rem;
+    margin-bottom: 4.375rem;
+  }
+}
+@media only screen and (max-width: 40em) {
+  .total-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .table > p {
+    font-size: 1rem;
+  }
+  .power-stats {
+    margin: 0.625rem;
+    margin-top: 5.625rem;
+    margin-bottom: 1.875rem;
+  }
 }

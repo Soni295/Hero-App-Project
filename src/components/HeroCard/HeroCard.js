@@ -21,20 +21,22 @@ export const HeroCard = ({name, img, powerstats, details, id, alignment}) => {
 
   return(
     <Card>
-
       <Card.Img className='hero-picture' variant="top" src={img} onError={handleImgError}/>
-      <Card.ImgOverlay>
+      <Card.ImgOverlay className='blur-text-hero-img'>
         <Card.Title className={'hero-name ' + alignment}>{name}</Card.Title>
-      </Card.ImgOverlay>
-
       <Table
         data={powerstats}
         containerClass={'hero-stats ' + alignment + visible.front }
       />
+
       <Table
         data={details}
         containerClass={'details ' + alignment + visible.back }
       />
+
+      </Card.ImgOverlay>
+
+
       <Card.Body>
         <Buttons
           handleVisible={handleVisible}
@@ -44,5 +46,10 @@ export const HeroCard = ({name, img, powerstats, details, id, alignment}) => {
         />
       </Card.Body>
     </Card>
+
   )
 }
+
+/*
+
+*/

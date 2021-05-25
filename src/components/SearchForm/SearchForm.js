@@ -1,30 +1,25 @@
-import { Form, FormControl, Button } from 'react-bootstrap'
-import { useHistory } from 'react-router-dom'
-import { useState } from 'react'
+import { Form, Button } from 'react-bootstrap'
+
+import { HandleSearch } from '../../services/HandleSearch/HandleSearch'
+import { Input } from '../FormInput/FormInput'
+import './style.css'
 
 export const SearchForm = () => {
-  const [name, setName] = useState('')
-  const history = useHistory()
-
-  const handleSearch = e => {
-    e.preventDefault()
-    history.push(`/search/${name}`)
-  }
-
+  const {formik} = HandleSearch()
   return (
     <Form
       className='search-form'
-      inline
-      onSubmit={handleSearch}
+      onSubmit={formik.handleSubmit}
     >
-      <FormControl
-        className="mr-sm-2"
-        type="text"
-        placeholder="Search"
-        value={name}
-        onChange={e => setName(e.target.value)}
-      />
-      <Button type='submit' variant="outline-success">Search</Button>
+      <Input
+        className="mr-sm-2 search-inline "
+        name='search'
+        type='text'
+        placeholder='batman'
+        control={formik}
+      >
+        <Button type='submit' variant="outline-success">Search</Button>
+      </Input>
     </Form>
   )
 }

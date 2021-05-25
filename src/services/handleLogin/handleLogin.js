@@ -1,15 +1,17 @@
-import { useContext, useState } from 'react'
+import { useContext } from 'react'
 import { useFormik } from 'formik'
 
 import { challengeApi } from '../../config/challengeApi'
 import { UserContext } from '../../context/UserContext'
 
 import { validate, initialValues, typeOfMsg } from './validate'
+import { useModal } from '../../hooks/useModal'
 
 export const HandleLogin = () => {
 
-  const [modalShow, setModalShow] = useState({state: false, title: '', msg: ''})
   const {session, dispatch} = useContext(UserContext)
+
+  const {modal, setModal} = useModal('Login Error')
 
   const onSubmit = values => {
     dispatch.loading()
@@ -20,14 +22,12 @@ export const HandleLogin = () => {
       .then(token => dispatch.loginSuccess(values.email, token))
       .catch(error => {
         const msg = typeOfMsg[error.message] || 'Error'
-
-        setModalShow(prevState => ({
-          prevState, state: true, title: 'Login Error', msg
-        }))
+        setModal.setMsg(msg)
+        setModal.show()
       })
       .then(() =>  dispatch.endOfLoading())
   }
 
   const formik = useFormik({ initialValues, onSubmit, validate })
-  return {formik, modalShow, setModalShow, session}
+  return {formik, modal, setModal, session}
 }

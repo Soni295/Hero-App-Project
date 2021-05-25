@@ -1,11 +1,5 @@
 import { useReducer, useEffect } from 'react'
-import { actionType, reducer } from './reducer'
-
-const initState = {
-  user: '',
-  token: localStorage.getItem('token') || null,
-  loading: false
-}
+import { reducer, actionType, initState } from './reducer'
 
 export const UserReducer = () => {
   const [session, setSession] = useReducer(reducer, initState)

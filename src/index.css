@@ -14,3 +14,25 @@ code {
 .full-window {
   background: var(--bs-gray);
 }
+
+
+.center-windown {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 8rem;
+  width: 8rem;
+}
+@media only screen and (max-width: 64em) {
+  .center-windown {
+    height: 7rem;
+    width: 7rem;
+  }
+}
+@media only screen and (max-width: 40em) {
+  .center-windown {
+    height: 6.25rem;
+    width: 6.25rem;
+  }
+}

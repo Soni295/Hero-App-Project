@@ -6,20 +6,20 @@ import { Navbar } from './components/Navbar/Navbar'
 import './App.css'
 
 const Routers = () => (
-  <Router>
-    <Navbar />
+  <MyTeamProvider>
     <Switch>
       {allRoutes.map( route =>
         <Route {...route} />
       )}
     </Switch>
-  </Router>
+  </MyTeamProvider>
 )
 
 export const App = () => (
-  <UserProvider>
-    <MyTeamProvider>
+  <Router>
+    <UserProvider>
+      <Navbar />
       <Routers />
-    </MyTeamProvider>
-  </UserProvider>
+    </UserProvider>
+  </Router>
 )

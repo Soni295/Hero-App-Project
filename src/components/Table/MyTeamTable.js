@@ -1,6 +1,7 @@
 import { Table } from './Table'
 
 export const MyTeamTable = ({data}) => {
+  if(data === null) return <></>
 
   const {weight, height, ...rest} = data
   return(

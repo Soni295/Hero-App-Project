@@ -16,9 +16,6 @@
 .form-login > h2 {
   margin-bottom: 1.4375rem;
 }
-.form-group {
-  min-height: 8.125rem;
-}
 .loading {
   height: 2.1875rem;
   width: 2.1875rem;

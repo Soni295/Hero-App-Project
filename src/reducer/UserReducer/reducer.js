@@ -1,3 +1,9 @@
+export const initState = {
+  user: '',
+  token: localStorage.getItem('token') || null,
+  loading: false
+}
+
 export const actionType = {
   LOADING: 'LOADING',
   END_OF_LOADING: 'LOADING_OF_LOADING',
@@ -13,7 +19,6 @@ export const reducer = (state, action) => {
       return {...state, user: action.payload.user, token: action.payload.token }
     case actionType.END_OF_LOADING:
       return {...state, loading: false}
-    //case actionType.LOGOUT_SUCCESS:
     default:
       console.log('error')
       return {...state}

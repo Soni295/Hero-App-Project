@@ -1,18 +1,19 @@
-import { HeroContainer } from '../components/HeroContainer/HeroContainer'
 import { LoadingIcon } from '../components/LoadingIcon/LoadingIcon'
 import { DefaultMessage } from '../components/DefaultMessage/DefaultMessage'
 
 import { RequestHeros } from '../services/superHeroApi/RequestHeros'
 
+import { HeroSearched } from '../components/HeroSearched/HeroSearched'
+
 export const SearchPage = () => {
   const {heros} = RequestHeros()
-  const msgEmpty = 'Sorry, do not exist anybody hero who used this name'
+  const msgEmpty = 'Sorry, do not exist any hero who use this name'
 
   return heros.loading
-    ? <LoadingIcon />
+    ? <div className='center-windown'><LoadingIcon /></div>
     : <>
       {heros.heros.length !== 0
-         ? <HeroContainer heros={heros.heros}/>
+         ? <HeroSearched heros={heros.heros}/>
          : <DefaultMessage text={msgEmpty}/>
       }
       </>

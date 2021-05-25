@@ -1,7 +1,7 @@
+import { DefaultMessage } from '../components/DefaultMessage/DefaultMessage'
+
 export const NotFoundPage = () => {
-  return (
-    <h1>
-      Sorry this page don't exist
-    </h1>
-  )
+  const msg = "Sorry this page don't exist"
+
+  return <DefaultMessage text={msg} />
 }

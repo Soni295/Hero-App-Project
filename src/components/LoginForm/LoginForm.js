@@ -10,7 +10,7 @@ import './style.css'
 export const LoginForm = () => {
   const {
     formik, session,
-    modalShow, setModalShow
+    modal, setModal
   } = HandleLogin()
 
   return (
@@ -40,8 +40,8 @@ export const LoginForm = () => {
             </Button>
         }
         <ModalAlert
-          modalShow={modalShow}
-          setModalShow={setModalShow}
+          modal={modal}
+          setModal={setModal}
         />
       </Form>
     </div>

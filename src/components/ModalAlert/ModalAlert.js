@@ -1,30 +1,29 @@
 import { Modal as ModalBS, Button } from 'react-bootstrap'
+import ReactDOM from 'react-dom'
 
-export const ModalAlert = ({modalShow, setModalShow}) => {
+export const ModalAlert = ({modal, setModal}) => {
 
-  const handleHideModal = () => {
-    setModalShow(preState => ({...preState, state: false}))
-  }
-  return(
+  return ReactDOM.createPortal(
     <ModalBS
       aria-labelledby="contained-modal-title-vcenter"
       centered
-      show={modalShow.state}
-      onHide={handleHideModal}
+      show={modal.state}
+      onHide={setModal.hide}
     >
       <ModalBS.Header>
         <ModalBS.Title id="contained-modal-title-vcenter">
-          {modalShow.title}
+          {modal.title}
         </ModalBS.Title>
       </ModalBS.Header>
       <ModalBS.Body>
         <p>
-          {modalShow.msg}
+          {modal.msg}
         </p>
       </ModalBS.Body>
       <ModalBS.Footer>
-        <Button onClick={handleHideModal}>Close</Button>
+        <Button onClick={setModal.hide}>Close</Button>
       </ModalBS.Footer>
-    </ModalBS>
+    </ModalBS>,
+    document.getElementById('modal')
   )
 }

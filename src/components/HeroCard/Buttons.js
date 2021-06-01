@@ -20,6 +20,7 @@ export const Buttons = memo(({handleVisible, id, alignment, hero}) => {
     )
     if(countAlignment < 3) dispatch.addHero(hero)
     else setModal.show()
+  // eslint-disable-next-line
   }, [hero, myTeam.heros])
 
   const handleRemove = () => dispatch.removeHero(id)
